@@ -1,6 +1,6 @@
-package Backtracking;
+// package Backtracking;
 
-public class file1 {
+public class Permutation {
     public static void permutation(String str, String perm, int idx){
 
         if(str.length() == 0){
