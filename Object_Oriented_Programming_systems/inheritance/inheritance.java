@@ -1,4 +1,4 @@
-package Object_Oriented_Programming_systems;
+package Object_Oriented_Programming_systems.inheritance;
 
 // Hybrid Inheritence -> overall we are implementing this type of inheritence
 /*
@@ -24,7 +24,7 @@ class Shape {
 
  */
 
-class Triangle extends Shape {
+class Triangle extends Object_Oriented_Programming_systems.inheritance.Shape {
     public void area(int l, int h) {
         System.out.println(0.5*h*l);
     }
@@ -39,7 +39,7 @@ class Triangle extends Shape {
             Child (EquilateralTriangle)
 
  */
-class EquilateralTriangle extends Shape {
+class EquilateralTriangle extends Object_Oriented_Programming_systems.inheritance.Shape {
     public void area(int l, int h) {
         System.out.println(0.5*h*l);
     }
@@ -54,7 +54,7 @@ class EquilateralTriangle extends Shape {
         Child (Triangle)      Child (Circle)
  
  */
-class Circle extends Shape {
+class Circle extends Object_Oriented_Programming_systems.inheritance.Shape {
     public void area(int r) {
         System.out.println(3.14*r*r);
     }
@@ -62,7 +62,7 @@ class Circle extends Shape {
 
 public class inheritance {
     public static void main(String[] args) {
-        Triangle tri1 = new Triangle();
+       Object_Oriented_Programming_systems.inheritance.Triangle tri1 = new Object_Oriented_Programming_systems.inheritance.Triangle();
         System.out.println(tri1.color);
     }
 }

@@ -1,4 +1,4 @@
-package Object_Oriented_Programming_systems.pack;
+package Object_Oriented_Programming_systems.accessModifier.pack;
 
 public class A {
     protected String xyz;

@@ -1,5 +1,5 @@
-package Object_Oriented_Programming_systems.myPack;
-import Object_Oriented_Programming_systems.pack.*;
+package Object_Oriented_Programming_systems.accessModifier.myPack;
+import Object_Oriented_Programming_systems.accessModifier.pack.*;
  
 class B extends A{
     public static void main(String[] args) {
