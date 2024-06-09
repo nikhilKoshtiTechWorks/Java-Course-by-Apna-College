@@ -13,8 +13,8 @@ public class Static {
         Student.school = "MES";                         // We can access static variables without creating an object using class name (Student)
         Student s1 = new Student();
         s1.name = "Nikhil";
-        System.out.println(s1.school + " " + s1.name);
+        System.out.println(Student.school + " " + s1.name);
         Student.changeSchool("NMV");
-        System.out.println(s1.school + " " + s1.name);
+        System.out.println(Student.school + " " + s1.name);
     }
 }
