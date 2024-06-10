@@ -1,11 +1,11 @@
 package Data_Structures.LinkedList;
 
 
-public class LL {
+public class ScratchLL {
     Node head;
     private int size;
 
-    LL() {
+    ScratchLL() {
         this.size = 0;
     }
 
@@ -93,23 +93,103 @@ public class LL {
         } System.out.println("NULL");
     }
 
+    public void addInBetween(int index, String data) {
+        Node newNode = new Node(data);
+        if (index < 0 || index > size) {
+            System.out.println("Invalid index");
+            return;
+        }
+
+        if (index == 0) {
+            newNode.next = head;
+            head = newNode;
+            return;
+        }
+
+        Node previous = head;
+        Node current = head.next;
+        for (int i = 1; i < size; i++) {
+            if (i == index) {
+                newNode.next = current;
+                previous.next = newNode;
+            }
+            previous = previous.next;
+            current = current.next;
+        }
+        size++;
+    }
+
+    public void removeInBetween(int index) {
+        if (index < 0 || index > size) {
+            System.out.println("Invalid index");
+            return;
+        }
+
+        if (index == 0) {
+            head = head.next;
+            return;
+        }
+
+        Node preNode = head;
+        Node current = head.next;
+        Node nxtNode = current.next;
+
+        for (int i = 1; i < size; i++) {
+            if (index == i) {
+                preNode.next = nxtNode;
+                current = null;
+                size--;
+                return;
+            }
+            preNode = preNode.next;
+            current = current.next;
+            nxtNode = nxtNode.next;
+        }
+    }
+
     public int getSize() {
         return size;
     }
 
     public static void main(String[] args) {
         
-        LL list1 = new LL();
+        ScratchLL list1 = new ScratchLL();
         list1.addFirst("Nikhil");
+        list1.printList();
+
         list1.addLast("is");
+        list1.printList();
+
         list1.addFirst("Koshti");
+        list1.printList();
+
         list1.addLast("Good Boy");
+        list1.printList();
+
         list1.deleteFirst();
+        list1.printList();
+
         list1.deleteLast();
+        list1.printList();
+
         list1.addLast("a");
+        list1.printList();
+
         list1.addLast("better");
+        list1.printList();
+
         list1.addLast("programmer");
         list1.printList();
+
+        list1.addInBetween(2, "not");
+        list1.printList();
+
+        list1.removeInBetween(4);
+        list1.printList();
+        
+        list1.addInBetween(4, "bad");
+        list1.printList();
+        
         int size = list1.getSize();
         System.out.println(size);
     }
