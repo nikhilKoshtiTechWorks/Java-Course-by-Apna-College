@@ -1,11 +1,11 @@
 package Data_Structures.LinkedList;
 
 
-public class ScratchLL {
+public class ReverseLL {
     Node head;
     private int size;
 
-    ScratchLL() {
+    ReverseLL() {
         this.size = 0;
     }
 
@@ -152,46 +152,51 @@ public class ScratchLL {
         return size;
     }
 
+    public void iterativeReverseLL() {
+
+        Node currNode = head;
+        Node preNode = null;
+        
+        while (currNode != null) {
+            Node tempNode = currNode.next;      // this node is collected by the Java Garbage Collector after each iteratio execution. So no effet on Space complexity
+            currNode.next = preNode;
+            preNode = currNode;
+            currNode = tempNode;
+        }
+ 
+        head = preNode;
+    }
+
+    public Node recursiveReverseLL(Node head) {
+        if (head == null || head.next == null) {
+            return head;
+        }
+
+        Node newHead = recursiveReverseLL(head.next);       // this will return last node and will return it in every recursive call
+
+        head.next.next = head;
+        head.next = null;
+
+        return newHead;
+    }
+
     public static void main(String[] args) {
         
-        ScratchLL list1 = new ScratchLL();
-        list1.addFirst("Nikhil");
+        ReverseLL list1 = new ReverseLL();    
+
+        list1.addFirst("a");
+        list1.addFirst("b");
+        list1.addFirst("c");
+        // list1.addFirst("d");
+        // list1.addFirst("e");
+
         list1.printList();
 
-        list1.addLast("is");
+        list1.iterativeReverseLL();
         list1.printList();
 
-        list1.addFirst("Koshti");
+        list1.head = list1.recursiveReverseLL(list1.head);
         list1.printList();
 
-        list1.addLast("Good Boy");
-        list1.printList();
-
-        list1.deleteFirst();
-        list1.printList();
-
-        list1.deleteLast();
-        list1.printList();
-
-        list1.addLast("a");
-        list1.printList();
-
-        list1.addLast("better");
-        list1.printList();
-
-        list1.addLast("programmer");
-        list1.printList();
-
-        list1.addInBetween(2, "not");
-        list1.printList();
-
-        list1.removeInBetween(4);
-        list1.printList();
-        
-        list1.addInBetween(4, "bad");
-        list1.printList();
-        
-        int size = list1.getSize();
-        System.out.println(size);
     }
 }
